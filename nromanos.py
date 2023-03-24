@@ -124,13 +124,5 @@ class TestDecimalToRoman(unittest.TestCase):
     def test(self, decimal, roman):
         self.assertEqual(decimal_to_roman(decimal), roman)
 
-"""class TestDecimalToRoman(unittest.TestCase):
-    def test_uno(self):
-        #pre condicion
-        #NO HAY 
-        #proceso 
-        resultado = decimal_to_roman(1)
-        self.assertEqual(resultado, "I")
-"""
 if __name__ == '__main__':
     unittest.main()
