@@ -1,0 +1,103 @@
+from parameterized import parameterized, parameterized_class
+import unittest
+from nromanos import decimal_to_roman
+from nrodecimales import roman_to_decimal
+class MyTest(unittest.TestCase):
+    @parameterized.expand([
+        (1, "I"),
+        (2, "II"),
+        (3, "III"),
+        (4, "IV"),
+        (5, "V"),
+        (6, "VI"),
+        (7, "VII"),
+        (8, "VIII"),
+        (9, "IX"),
+        (10, "X"),
+        (11, "XI"),
+        (12, "XII"),
+        (13, "XIII"),
+        (14, "XIV"),
+        (15, "XV"),
+        (16, "XVI"),
+        (17, "XVII"),
+        (18, "XVIII"),
+        (19, "XIX"),
+        (20, "XX"),
+        (33, "XXXIII"),
+        (35, "XXXV"),
+        (36, "XXXVI"),
+        (37, "XXXVII"),
+        (38, "XXXVIII"),
+        (39, "XXXIX"),
+        (40, "XL"),
+        (44, "XLIV"),
+        (49, "XLIX"),
+        (50, "L"), 
+        (52, "LII"),
+        (54, "LIV"),
+        (57, "LVII"),
+        (59, "LIX"),
+        (60, "LX"),
+        (64, "LXIV"),
+        (65, "LXV"),
+        (68, "LXVIII"),
+        (69, "LXIX"),
+        (70, "LXX"),
+        (71, "LXXI"),
+        (84, "LXXXIV"),
+        (89, "LXXXIX"),
+        (90, "XC"),
+        (91, "XCI"),
+        (94, "XCIV"),
+        (98, "XCVIII"),
+        (99, "XCIX"),
+        (100, "C"),
+        (398, "CCCXCVIII"),
+        (399, "CCCXCIX"),
+        (400, "CD"),
+        (498, "CDXCVIII"),
+        (499, "CDXCIX"),
+        (500, "D"),
+        (890, "DCCCXC"),
+        (898, "DCCCXCVIII"),
+        (899, "DCCCXCIX"),
+        (900, "CM"),
+        (940, "CMXL"),
+        (950, "CML"),
+        (980, "CMLXXX"), 
+        (998, "CMXCVIII"), 
+        (999, "CMXCIX"),
+        (1000, "M")
+    ])
+    def test(self, decimal, roman):
+        self.assertEqual(decimal_to_roman(decimal), roman)
+
+    @parameterized.expand([
+        ("I", 1),
+        ("II", 2),
+        ("III", 3),
+        ("IV", 4),
+        ("V", 5),
+        ("VI", 6),
+        ("VII", 7),
+        ("VIII", 8),
+        ("IX", 9),
+        ("X", 10),
+        ("XX", 20),
+        ("XXXIV", 34),
+        ("XL", 40),
+        ("LIX", 59),
+        ("XC", 90),
+        ("CXXX", 130),
+        ("CD", 400),
+        ("D", 500),
+        ("CMXCIX", 999),
+        ("M", 1000),
+        ("MMCCCXLIV", 2344)
+    ])
+    def test(self, roman, decimal):
+        self.assertEqual(roman_to_decimal(roman),decimal)
+
+if __name__ == '__main__':
+    unittest.main()
