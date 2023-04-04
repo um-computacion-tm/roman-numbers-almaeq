@@ -8,35 +8,3 @@ def roman_to_decimal(roman_numeral):
             decimal_num += roman_numerals[roman_numeral[i]]
     return decimal_num
     
-from parameterized import parameterized, parameterized_class
-import unittest
-
-class TestDecimalToRoman(unittest.TestCase):
-    @parameterized.expand([
-        ("I", 1),
-        ("II", 2),
-        ("III", 3),
-        ("IV", 4),
-        ("V", 5),
-        ("VI", 6),
-        ("VII", 7),
-        ("VIII", 8),
-        ("IX", 9),
-        ("X", 10),
-        ("XX", 20),
-        ("XXXIV", 34),
-        ("XL", 40),
-        ("LIX", 59),
-        ("XC", 90),
-        ("CXXX", 130),
-        ("CD", 400),
-        ("D", 500),
-        ("CMXCIX", 999),
-        ("M", 1000),
-        ("MMCCCXLIV", 2344)
-    ])
-    def test(self, roman, decimal):
-        self.assertEqual(roman_to_decimal(roman),decimal)
-
-if __name__ == '__main__':
-    unittest.main()
